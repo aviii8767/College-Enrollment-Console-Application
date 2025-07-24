@@ -43,7 +43,20 @@ A console-based application built using **.NET Framework (C#)** and **MySQL** to
 - 💻 **.NET (C#)** — Console Application  
 - 🛢️ **MySQL** — Relational Database  
 - 🔌 **ADO.NET** — Database Connectivity  
-- 📋 **SQL** — Data Manipulation and Querying  
+- 📋 **SQL** — Data Manipulation and Querying
+  
+---
+
+## 🔌 ADO.NET Integration
+
+All database operations are handled using **ADO.NET**, with:
+
+* `MySqlConnection`
+* `MySqlCommand`
+* `MySqlDataReader`
+
+This helps in understanding how .NET interacts with relational databases securely.
+
 ---
 
 ## 🗂️ Database Schema
@@ -78,24 +91,6 @@ This project uses a **relational database schema** to manage college data in a n
 
 ---
 
-## 🙌 Acknowledgements
-
-I would like to express my sincere gratitude to Suraj Sir for his invaluable guidance and support throughout the development of this project. His mentorship helped me understand and implement key backend and database concepts effectively.
-Additionally, I am currently learning how to implement Entity Framework, which I plan to integrate into future enhancements of this application.
-```
-
-## 🔌 ADO.NET Integration
-
-All database operations are handled using **ADO.NET**, with:
-
-* `MySqlConnection`
-* `MySqlCommand`
-* `MySqlDataReader`
-
-This helps in understanding how .NET interacts with relational databases securely.
-
----
-
 ## 🎯 Project Objectives
 
 * Learn .NET backend development with C#
@@ -106,9 +101,17 @@ This helps in understanding how .NET interacts with relational databases securel
 
 ---
 
+## 🙌 Acknowledgements
+
+I would like to express my sincere gratitude to Suraj Sir for his invaluable guidance and support throughout the development of this project. His mentorship helped me understand and implement key backend and database concepts effectively.
+Additionally, I am currently learning how to implement Entity Framework, which I plan to integrate into future enhancements of this application.
+
+---
+
 ## 📧 Contact
 
 **Developer**: Avishkar Purushottam Gaware
-📫 [avishkargaware.sit.entc.2026@gmail.com](mailto:avishkargaware.sit.entc.2026@gmail.com)
-🌐 [Portfolio](https://aviii8767.github.io/portfolio-website/)
-🔗 [GitHub](https://github.com/aviii8767)
+📫 [gawareavishkar2004@gmail.com](mailto:gawareavishkar2004@gmail.com)
+🔗 [LinkedIn](https://short-link.me/18GV7)
+
+```
