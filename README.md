@@ -1,118 +1,88 @@
 # College-Enrollment-Console-Application
 
 ## 📌 Project Overview
-The College Enrollment Console Application is a .NET-based C# console application integrated with a MySQL database. It simulates the academic and administrative processes of a college, with structured role-based access. The system includes four distinct user roles: Student, Teacher, Admin, and Super-Admin, each having specific menus and permissions.
-
-All data operations are handled using ADO.NET, making it a strong backend system to understand database-driven application development.
-
-Sure, here's the **final updated `README.md`** with the addition of **“.NET”** usage clearly highlighted throughout. I've emphasized it's a **.NET-based C# console application**, which adds credibility and clarity to your tech stack.
+A console-based application built using **.NET Framework (C#)** and **MySQL** to manage college operations efficiently. The system supports multiple user roles—**Student, Teacher, Admin, and SuperAdmin**—with tailored permissions and functionalities for each role. It ensures secure user verification, structured CRUD operations, and dynamic interaction with a relational database.
 
 ---
 
-## 🚀 Technologies Used
+## 🚀 Features
 
-* **Programming Language**: C# (.NET Framework / .NET Core)
-* **Framework**: .NET (Console Application)
-* **Database**: MySQL
-* **Data Access Layer**: ADO.NET
-* **Development Environment**: Visual Studio / JetBrains Rider
+🔹 **Role-based Access Control**  
+- Student, Teacher, Admin, and SuperAdmin workflows  
+- Each role has specific permissions and functionality
+
+🔹 **Student Module**  
+- Register as a new student or log in as an existing one  
+- View and update personal info  
+- Enroll in available courses  
+- View enrolled courses  
+- Remove profile  
+
+🔹 **Teacher Module**  
+- Register or log in as teacher  
+- View/update profile  
+- View assigned courses  
+- View enrolled students for assigned courses  
+- Add student results  
+- Remove profile
+  
+🔹 **Admin Module**  
+- Secure login with Admin ID (no new registration from admin module)  
+- View/update/remove Students and Teachers  
+- View lists of Courses, Departments, Semesters  
+
+🔹 **SuperAdmin Module**  
+- Higher-level access  
+- Register or remove Admins  
+- Add/remove Departments, Courses, and Semesters  
 
 ---
 
-## 🧩 System Architecture
+## 🧑‍💻 Technologies Used
 
-On startup, the user is prompted to select their entity:
+- 💻 **.NET (C#)** — Console Application  
+- 🛢️ **MySQL** — Relational Database  
+- 🔌 **ADO.NET** — Database Connectivity  
+- 📋 **SQL** — Data Manipulation and Querying  
+---
 
+## 🗂️ Database Schema
+
+This project uses a **relational database schema** to manage college data in a normalized and scalable structure.
+
+### 📌 Entities & Relationships
+
+- **Student**, **Teacher**, **Admin**, **SuperAdmin** share location data via a common `address` table.
+- **Course** is linked to `Teacher`, `Semester`, and `Department`.
+- **StudentCourseEnrollment** enables many-to-many relation between `Student` and `Course`.
+- **Result** table stores exam scores per student per course.
+
+### 🔄 Relationship Summary
+
+- **One-to-Many**
+  - Department → Teachers  
+  - Teacher → Courses  
+  - Semester → Courses  
+
+- **Many-to-Many**
+  - Student ↔ Course (via CourseEnrollment table)
+
+---
+
+### 🖼️ EER Diagram
+
+![EER Diagram](assets/eer-for-college-db.png)
+
+> This diagram illustrates the complete database architecture including all tables, keys, and relationships.  
+> File path: `assets/eer-for-college-db.png`
+
+---
+
+## 🙌 Acknowledgements
+
+I would like to express my sincere gratitude to Suraj Sir for his invaluable guidance and support throughout the development of this project. His mentorship helped me understand and implement key backend and database concepts effectively.
+Additionally, I am currently learning how to implement Entity Framework, which I plan to integrate into future enhancements of this application.
 ```
-Who are you?
-1. Student
-2. Teacher
-3. Admin
-4. Super Admin
-```
-
-Based on the input, the application navigates to the corresponding section with access to specific features.
-
----
-
-## 👤 1. Student Section
-
-* Prompts: New or Existing Student
-* Existing Student enters `StudentID` which is verified against the database.
-
-  * If found: Student menu is shown.
-  * If not: Prompt to retry or exit.
-* New Student can register via form inputs.
-
-### 📋 Student Features:
-
-* View personal student info
-* Update student data
-* View enrolled courses
-* Enroll in new courses (from list)
-* Remove own student account
-
----
-
-## 👨‍🏫 2. Teacher Section
-
-* Prompts: New or Existing Teacher
-* Existing Teacher enters `TeacherID` for verification
-* New Teacher can register
-
-### 📋 Teacher Features:
-
-* View and update teacher profile
-* View allocated courses
-* View students enrolled in their courses
-* Add results for students in their courses
-
----
-
-## 🧑‍💼 3. Admin Section
-
-* Only existing Admins can log in via `AdminID`
-* Admin registration is **only allowed by Super Admin**
-
-### 📋 Admin Features:
-
-* View own admin profile
-* Manage Students:
-
-  * View all, search by ID, update, remove
-* Manage Teachers:
-
-  * View all, search by ID, update, remove
-* View Courses, Semesters, Departments
-
----
-
-## 🧑‍⚖️ 4. Super Admin Section
-
-Super Admin has full privileges across the system and extended admin capabilities.
-
-### 📋 Super Admin Features:
-
-* All Admin-level operations
-* Add and remove Admins
-* Add new Courses, Departments, Semesters
-
----
-
-## 💾 Database Design
-
-The backend uses a structured **MySQL relational database** with tables such as:
-
-* `students`, `teachers`, `admins`, `super_admins`
-* `courses`, `enrollments`, `results`
-* `departments`, `semesters`, etc.
-
-### 🧮 ER Diagram
-
-> ✅ The ER Diagram is included in the project files for better schema understanding.
-> *(Example: `![ER Diagram](./assets/er_diagram.png)`)*
-
----
 
 ## 🔌 ADO.NET Integration
 
@@ -121,7 +91,6 @@ All database operations are handled using **ADO.NET**, with:
 * `MySqlConnection`
 * `MySqlCommand`
 * `MySqlDataReader`
-* Parameterized queries to avoid SQL injection
 
 This helps in understanding how .NET interacts with relational databases securely.
 
@@ -134,35 +103,6 @@ This helps in understanding how .NET interacts with relational databases securel
 * Implement full CRUD operations via ADO.NET
 * Understand real-world use cases like enrollment systems
 * Prepare for deployment using **AWS EC2** and API integration
-
----
-
-## 🔜 Upcoming Features
-
-* REST API implementation using **ASP.NET Core**
-* Deploy backend APIs on **AWS EC2**
-* Add login/authentication flow
-* Export data (PDF/CSV)
-
----
-
-## 📂 How to Run
-
-1. Clone the repo:
-
-   ```bash
-   git clone https://github.com/your-username/college-enrollment-console-app.git
-   ```
-
-2. Import the MySQL schema using the provided `.sql` file.
-
-3. Update the connection string in `dbConn.cs`:
-
-   ```csharp
-   string connString = "server=localhost;user=root;password=yourpassword;database=college_db;";
-   ```
-
-4. Open the project in **Visual Studio** and run the application.
 
 ---
 
