@@ -43,7 +43,6 @@ A console-based application built using **.NET Framework (C#)** and **MySQL** to
 - 💻 **.NET (C#)** — Console Application  
 - 🛢️ **MySQL** — Relational Database  
 - 🔌 **ADO.NET** — Database Connectivity  
-- 📋 **SQL** — Data Manipulation and Querying
   
 ---
 
